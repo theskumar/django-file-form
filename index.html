@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  
+  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>django-file-form</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Django file form";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> django-file-form</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href=".">Django file form</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#details">Details</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#include-hidden-fields">Include hidden fields</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#temp-upload-dir-must-exist">Temp upload dir must exist</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#adding-placeholder-files">Adding placeholder files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#upload-directly-to-aws-s3">Upload directly to AWS S3</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#accept-attribute">Accept attribute</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#additional-file-metadata">Additional file metadata</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#upgrade-from-version-10-to-20">Upgrade from version 1.0 (to 2.0)</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settings">Settings</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#inituploadfields">initUploadFields</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#form-sets">Form sets</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#translate">Translate</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#javascript-events">Javascript events</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#changelog">Changelog</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">django-file-form</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Django file form</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="django-file-form">Django file form</h1>
+<p><strong>Django-file-form</strong> helps you to write forms with a pretty ajax upload.</p>
+<p>Features:</p>
+<ul>
+<li>You can easily add an ajax file-upload to a form.</li>
+<li>The ajax upload works the same as an html upload.<ul>
+<li>This means that you don't have to change your code to support ajax upload.</li>
+</ul>
+</li>
+<li>Supports single and multiple file upload.</li>
+<li>Supports edition of uploaded files.</li>
+<li>Supports upload directly to AWS S3 compatible storages.</li>
+<li>Supports frontend events for the addition and removal of files.</li>
+<li>Supports addition of arbitrary file meta data and related widgets.</li>
+</ul>
+<p>The project is hosted on <a href="https://github.com/mbraak/django-file-form">github</a>.</p>
+<p>Works with Django 2.2 - 3.1. Also with Python 3.6 - 3.8</p>
+<p>Older versions:</p>
+<ul>
+<li>2.2 supports Django 2.0 and 2.2</li>
+<li>1.0.1 uses fine uploader for the javascript part</li>
+<li>0.5.0 supports Django 1.11 and Python 2.</li>
+</ul>
+<p>Version 2.0 has changed: see 'Upgrade from version 1.0' below, if you're upgrading from version 1.0 (or lower).</p>
+<h2 id="usage">Usage</h2>
+<p><strong>1 Install django-file-form</strong></p>
+<pre><code>pip install django-file-form
+</code></pre>
+<p><strong>2 Add the apps to your INSTALLED_APPS</strong></p>
+<p>You must include 'django_file_form'</p>
+<pre><code class="language-python">INSTALLED_APPS = [
+    'django_file_form',
+]
+</code></pre>
+<p><strong>3 Add the app to your urls</strong></p>
+<p>In this example we use the url <strong>upload/</strong>. You can use a different url if you like.</p>
+<pre><code class="language-python">urlpatterns = patterns(
+    '',
+    url(r'^upload/', include('django_file_form.urls')),
+)
+</code></pre>
+<p><strong>4 Add FileFormMixin to your form</strong></p>
+<pre><code class="language-python">from django_file_form.forms import FileFormMixin
+
+class ExampleForm(FileFormMixin, forms.Form):
+    pass
+</code></pre>
+<p><strong>5 Add a UploadedFileField</strong></p>
+<pre><code class="language-python">from django_file_form.forms import FileFormMixin, UploadedFileField
+
+class ExampleForm(FileFormMixin, forms.Form):
+    input_file = UploadedFileField()
+</code></pre>
+<p>Import and use <code>MultipleUploadedFileField</code> if you intent to add multiple files.</p>
+<p><strong>6 Include javascript and css in your template</strong></p>
+<pre><code class="language-js">&lt;script src=&quot;{% static &quot;file_form/file_form.js&quot; %}&quot;&gt;&lt;/script&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;{% static &quot;file_form/file_form.css&quot; %}&quot;&gt;
+</code></pre>
+<p>There is also an uncompressed javascript version: <code>file_form/file_form.debug.js</code>.</p>
+<p><strong>7 Call the initUploadFields javascript function</strong></p>
+<pre><code class="language-html">&lt;form id=&quot;example-form&quot; method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+    {% csrf_token %}
+    {{ form }}
+&lt;/form&gt;
+
+&lt;script&gt;
+   initUploadFields(
+      document.getElementById(&quot;example-form&quot;)
+   );
+&lt;/script&gt;
+</code></pre>
+<p>If your form has a prefix, then call <code>initUploadFields</code> as follows:</p>
+<pre><code class="language-js">  // for example, with prefix 'abc'
+  initUploadFields(
+    document.getElementById(&quot;example-form&quot;),
+    { prefix: 'abc' }
+  );
+</code></pre>
+<p>See the <a href="https://docs.djangoproject.com/en/2.1/ref/forms/api/#prefixes-for-forms">Django documentation</a> for more information about form prefixes.</p>
+<p><strong>8 Handle uploaded files</strong></p>
+<pre><code class="language-python">class ExampleFormView(generic.FormView):
+    template_name = 'example_form.html'
+    form_class = forms.ExampleForm
+
+    def form_valid(self, form):
+        input_file = form.cleaned_data['input_file']
+
+        return super(ExampleFormView, self).form_valid(form)
+</code></pre>
+<p><strong>9 Delete temporary files</strong></p>
+<pre><code class="language-python">class ExampleFormView(generic.FormView):
+    template_name = 'example_form.html'
+    form_class = forms.ExampleForm
+
+    def form_valid(self, form):
+        input_file = form.cleaned_data['input_file']
+
+        form.delete_temporary_files()
+
+        return super(ExampleFormView, self).form_valid(form)
+</code></pre>
+<h2 id="details">Details</h2>
+<h3 id="include-hidden-fields">Include hidden fields</h3>
+<p>Make sure that hidden form fields are included:</p>
+<pre><code class="language-python">{% for hidden in form.hidden_fields %}
+    {{ hidden }}
+{% endfor %}
+</code></pre>
+<p>NB: it's possible that the hidden fields are already included; for example if you use <code>form.as_p</code>. Do not include the hidden fields twice.</p>
+<p>Also see the testproject in the repository.</p>
+<h3 id="temp-upload-dir-must-exist">Temp upload dir must exist</h3>
+<p>Make sure the <code>FILE_FORM_UPLOAD_DIR</code> directory exists.</p>
+<pre><code class="language-python">temp_upload_dir = os.path.join(settings.MEDIA_ROOT,  settings.FILE_FORM_UPLOAD_DIR)
+
+if not os.path.exists(temp_upload_dir):
+  os.mkdir(temp_upload_dir)
+</code></pre>
+<h3 id="adding-placeholder-files">Adding placeholder files</h3>
+<p>If you have used <code>django-file-form</code> to upload files, potentially have saved the files elsewhere, but would like to use <code>django-file-form</code> to edit (remove or replace) the original uploaded files and append new files, you can add information about the original uploaded files as placeholders to the <code>UploadedFileField</code>. More specifically, you can initialize your field with one or more <code>PlaceholderUploadedFile</code> as follows:</p>
+<pre><code class="language-python">from django_file_form.models import PlaceholderUploadedFile
+
+initial['my_field'] = [
+  PlaceholderUploadedFile('testfile1.png')
+]
+</code></pre>
+<p>You can also add options <code>size</code> and <code>file_id</code> to specify file size if the file does not exist locally, and an unique ID of the file, respectively.</p>
+<pre><code class="language-python">initial['my_field'] = [
+  PlaceholderUploadedFile('testfile1.png', size=12394, file_id=my_file.pk)
+]
+</code></pre>
+<p>The placeholder file will be listed, and will either be kept intact, or be removed. When you save the form, you will have to handle the placeholders as follows:</p>
+<pre><code class="language-python">for f in self.cleaned_data['my_field']:
+    if f.is_placeholder:
+        # do nothing, or something with f.name or f.file_id
+        continue
+    # handle newly uploaded files as usual
+
+# remove existing files if the placeholders are deleted
+# ...
+</code></pre>
+<h3 id="upload-directly-to-aws-s3">Upload directly to AWS S3</h3>
+<p><code>django-file-form</code> supports upload directly to AWS S3 compatible storages. The files will be uploaded
+by clients directly to S3 through AJAX operations and return to the backend as <code>File</code> objects
+with <a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html"><code>S3Boto3Storage</code></a>.</p>
+<p>To use this method, you will first need to make sure your S3 bucket is configured
+to <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html">allow upload to bucket directly</a>,
+<a href="https://uppy.io/docs/aws-s3-multipart/#S3-Bucket-Configuration">allow <code>PUT</code> method, and expose <code>ETag</code> header</a>.
+You then need to define the following variables in <code>settings</code></p>
+<pre><code>AWS_ACCESS_KEY_ID
+AWS_SECRET_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME
+AWS_S3_REGION_NAME
+AWS_S3_ENDPOINT_URL
+</code></pre>
+<p>or through environment variables with the same names as described
+in <a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html"><code>django-storage</code> documentation</a>.</p>
+<p>The following CORS settings are also needed in <code>settings</code></p>
+<pre><code>CSP_DEFAULT_SRC = (&quot;'none'&quot;,)
+CSP_STYLE_SRC = (&quot;'self'&quot;)
+CSP_SCRIPT_SRC = (&quot;'self'&quot;,)
+CSP_FONT_SRC = (&quot;'self'&quot;)
+CSP_IMG_SRC = (&quot;'self'&quot;,)
+CSP_CONNECT_SRC = (&quot;'self'&quot;, AWS_S3_ENDPOINT_URL)
+</code></pre>
+<p>where <code>AWS_S3_ENDPOINT_URL</code> is the AWS endpoint defined above.</p>
+<p>Finally, you will need to define</p>
+<p><code>s3_upload_dir = "user_or_form_specific_id"</code></p>
+<p>in the form class or passed parameter <code>s3_upload_dir</code> to the constructor of the
+form to inform the frontend to use the AJAX uploader for S3. The files will be
+uploaded to</p>
+<pre><code>${FILE_FORM_UPLOAD_DIR}/${s3_upload_dir}/
+</code></pre>
+<p>in the specified S3 bucket, where <code>s3_upload_dir</code> can be empty or a directory
+specific to user or form to avoid conflicts on the AWS side. If the object
+already exists in the S3 bucket, a random string will be added to filename.</p>
+<p>After form submission, the files will be returned as customized <code>S3Boto3StorageFile</code>
+objects  with <code>S3Boto3Storage</code> as its underlying storage. The objects will have attributes
+<code>is_s3direct=True</code>,  <code>is_placeholder=False</code>, and <code>original_name</code> which is the
+name of the file that was uploaded that can be different from the basename
+of the object on S3 (<code>f.name</code>). Reading from these objects will download the files
+from S3.</p>
+<h3 id="accept-attribute">Accept attribute</h3>
+<p>You can add an accept attribute to the file input using the <code>accept</code> parameter on <code>UploadedFileField</code>:</p>
+<pre><code>file = UploadedFileField(accept='image/*,.pdf')
+</code></pre>
+<h3 id="additional-file-metadata">Additional file metadata</h3>
+<p>If you want to add and maintain additional metadata such as short descriptions and
+categories of uploaded files, you can use the <code>.metadata</code> field of uploaded files.
+More specifically, the AJAX uploader has a hidden field called <code>metadata</code> (with form
+specific prefix) with its <code>data</code> being the <code>JSON.dump</code>ed meta data of all files. The
+data should be in the format of</p>
+<pre><code>{
+  'filename1': value1,
+  'filename2': value2
+}
+</code></pre>
+<p>To add metadata to uploaded files, you will need to listen to events triggered after the
+additional and removal of file list (see "Javascript events" for details) to add your own
+widgets and event handlers to update the <code>data</code> of this hidden field.</p>
+<p>Upon form submission, <code>django-file-form</code> retrieves the data and assign them to returned file
+objects with matching filename (could be of placeholder and other types) as <code>f.metadata</code>.</p>
+<h2 id="upgrade-from-version-10-to-20">Upgrade from version 1.0 (to 2.0)</h2>
+<ul>
+<li>Add reference to file_form/file_form.css:</li>
+<li><code>&lt;link rel="stylesheet" href="{% static "file_form/file_form.css" %}"&gt;</code></li>
+<li>Remove <code>django_file_form.ajaxuploader</code> from <code>INSTALLED_APPS</code> in your settings</li>
+<li>Remove reference to <code>ajaxuploader/js/fileuploader.js</code> in your template</li>
+<li>Remove reference to <code>ajaxuploader/css/fileuploader.css</code> in your template</li>
+<li>You don't have to include jquery; the fileuploader doesn't use it</li>
+<li>The setting <code>FILE_FORM_UPLOAD_BACKEND</code> is removed</li>
+<li>If you use custom css, you might have to change it.</li>
+<li>The html uses the prefix <code>dff</code> now.</li>
+</ul>
+<h2 id="settings">Settings</h2>
+<p>Settings in <code>settings.py</code>:</p>
+<ul>
+<li><strong>FILE_FORM_MUST_LOGIN</strong> (True / False):</li>
+<li>Must the user be logged in to upload a file.</li>
+<li>
+<p>The default is <code>False</code>.</p>
+</li>
+<li>
+<p><strong>FILE_FORM_UPLOAD_DIR</strong> (string):</p>
+</li>
+<li>The directory for the temporary uploads.</li>
+<li>The setting is relative to <code>MEDIA_ROOT</code>.</li>
+<li>
+<p>The default is <code>temp_uploads</code>.</p>
+</li>
+<li>
+<p><strong>FILE_FORM_MAX_FILE_SIZE</strong> (int)</p>
+</li>
+<li>Maximum upload size in bytes</li>
+<li>
+<p>Default is 4GB</p>
+</li>
+<li>
+<p><strong>FILE_FORM_FILE_STORAGE</strong> (string):</p>
+</li>
+<li>Dotted path to the class that is used to store temporary uploads.</li>
+<li>The default is <code>django.core.files.storage.FileSystemStorage</code>.</li>
+<li>
+<p>Note that files will be uploaded to the local file system first regardless. This storage backend will be used only for fully uploaded files that are then passed back to the form when it's submitted.</p>
+</li>
+<li>
+<p><strong>FILE_FORM_CACHE</strong> (string):</p>
+</li>
+<li>Name of a cache backend defined in <code>settings.CACHES</code>.</li>
+<li>The default is Django's <code>default</code> cache.</li>
+<li>The cache is used to store data about files while they are being uploaded. If the default might be cleared while a file upload is in progress then using a different backend like django's database cache might be more appropriate. Note that <code>cache.clear()</code> will clear the whole cache at a specified <code>LOCATION</code> regardless what the <code>KEY_PREFIX</code> is.</li>
+</ul>
+<h2 id="inituploadfields">initUploadFields</h2>
+<p>Signature of <code>initUploadFields</code> is:</p>
+<pre><code>initUploadFields(formDomElement, options);
+</code></pre>
+<ul>
+<li><code>formDomElement</code> (required); e.g. <code>document.getElementById("example-form")</code></li>
+<li>options (optional)</li>
+<li><code>callbacks</code>: callbacks for things like upload progress and errors.</li>
+<li><code>chunkSize</code>: the maximum size of an upload. Default is 2.5 MB.<ul>
+<li>Note that Django limits the size of a request. See https://docs.djangoproject.com/en/3.1/ref/settings/#data-upload-max-memory-size.</li>
+</ul>
+</li>
+<li><code>eventEmitter</code>: experimental api for events. See 'Javascript events' section below</li>
+<li><code>prefix</code>: set this if the Django form has a prefix; default is empty</li>
+<li><code>retryDelays</code>: set retry delays<ul>
+<li>Also see <code>https://github.com/tus/tus-js-client#tusdefaultoptions</code></li>
+<li>Default is <code>[0, 1000, 3000, 5000]</code></li>
+</ul>
+</li>
+<li><code>skipRequired</code> : don't set the <code>required</code> field of the file input; default is <code>false</code></li>
+<li><code>supportDropArea</code> : add a drop area; default is <code>true</code></li>
+</ul>
+<p>The callbacks are:</p>
+<ul>
+<li><code>onDelete</code><ul>
+<li>called when file is deleted</li>
+<li>Signature of callback is <code>function(upload)</code></li>
+</ul>
+</li>
+<li><code>onError</code>:<ul>
+<li>called when an upload error occurs</li>
+<li>Signature of callback is <code>function(error, upload)</code></li>
+<li><code>error</code>: javascript Error</li>
+</ul>
+</li>
+<li><code>onProgress</code>:<ul>
+<li>Called each time when progress information is available.</li>
+<li>Signature of callback is <code>function(bytesUploaded, bytesTotal, upload)</code></li>
+</ul>
+</li>
+<li><code>onSuccess</code>:<ul>
+<li>Called when file upload is done.</li>
+<li>Signature of callback is <code>function(upload)</code></li>
+</ul>
+</li>
+</ul>
+<p>The callbacks receive an <code>upload</code> parameter which is <a href="https://github.com/tus/tus-js-client#new-tusuploadfile-options">this class</a>.</p>
+<p>Examples:</p>
+<pre><code class="language-js">initUploadFields(
+  document.getElementById(&quot;example-form&quot;)
+);
+</code></pre>
+<pre><code class="language-js">initUploadFields(
+  document.getElementById(&quot;example-form&quot;),
+  {
+    prefix: &quot;example&quot;,
+    skipRequired: true,
+    supportDropArea: true
+  }
+);
+</code></pre>
+<h2 id="form-sets">Form sets</h2>
+<p>You can also use a form set instead of a form. In that case <code>initFormSet</code> (instead of <code>initUploadFields</code>)
+in your javascript code.</p>
+<pre><code>initFormSet(form_element, options)
+</code></pre>
+<pre><code class="language-js">initFormSet(
+  document.getElementById(&quot;example-form&quot;),
+  { prefix: &quot;form&quot; }
+);
+</code></pre>
+<ul>
+<li>Note that the default form set prefix is <code>form</code>.</li>
+<li>Also see the <code>testproject</code> directory in the repository for an example.</li>
+</ul>
+<h2 id="translate">Translate</h2>
+<p>To update a translation or add new language</p>
+<p>Fork this repo as usual</p>
+<pre><code class="language-shell"># enter in project folder
+cd django-file-form
+
+# create virtualenv (example using pipenv)
+pipenv install --python=3 -r testproject/requirements.txt
+
+# enter in venv shell
+pipenv shell
+
+# update po file for your language
+django-admin makemessages -l fr
+</code></pre>
+<p>You can now edit generated po file and commit your changes as usual</p>
+<h2 id="javascript-events">Javascript events</h2>
+<p>There are javascript events for adding and removing an upload. The events are <code>addUpload</code>, <code>removeUpload</code>,
+and <code>uploadComplete</code>.</p>
+<pre><code class="language-js">import EventEmitter from 'eventemitter3';
+
+const eventEmitter = new EventEmitter();
+
+eventEmitter.on('addUpload', ({ element, fieldName, fileName, metaDataField, upload }) =&gt; {
+  //
+});
+
+eventEmitter.on('removeUpload', ({ element, fieldName, fileName, metaDataField, upload }) =&gt; {
+  //
+});
+
+eventEmitter.on('uploadComplete', ({ element, fieldName, fileName, metaDataField, upload }) =&gt; {
+  //
+});
+
+
+initUploadFields(
+    document.getElementById(&quot;example-form&quot;),
+    {
+      eventEmitter,
+    }
+);
+</code></pre>
+<ul>
+<li>You need the <code>eventemitter3</code> package to use this.</li>
+<li>The <code>metaDataField</code> is the metadata input. See 'Additional file metadata' in this document.</li>
+<li>This api is experimental.</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<p><strong>3.1.0 (15 september 2020)</strong></p>
+<ul>
+<li>Issue #324: get placeholder file for UploadWidget (thanks to Shrikrishna Singh)</li>
+<li>Issue #330: allow upload directly to S3 compatible storages (thanks to Bo Peng)</li>
+<li>Issue #331: fix error in deleting files (thanks to Bo Peng)</li>
+<li>Issue #333: replace existing uploaded file with the same name (thanks to Bo Peng)</li>
+<li>Issue #341: add javascript events (experimental)</li>
+<li>Issue #346: allow define s3_upload_dir in form class (thanks to Bo Peng)</li>
+</ul>
+<p><strong>3.0.1 (4 september 2020)</strong></p>
+<ul>
+<li>Issue #347: add chunkSize parameter to avoid request error in Django</li>
+</ul>
+<p><strong>3.0.0 (6 august 2020)</strong></p>
+<ul>
+<li>Issue #320: fix UploadMultipleWidget to return correct placeholder files (thanks to Shrikrishna Singh)</li>
+<li>Issue #325: support Django 3.1</li>
+</ul>
+<p><strong>2.2.0 (22 july 2020)</strong></p>
+<ul>
+<li>Issue #315: file is not removed after form error</li>
+<li>Issue #313: allow using custom storage and custom cache (thanks to Balazs Endresz)</li>
+</ul>
+<p><strong>2.1.3 (20 june 2020)</strong></p>
+<ul>
+<li>Issue #304: rewrite frontend in typescript</li>
+<li>Issue #305: don't change migration when setting changes (thanks to Lionqueen94)</li>
+<li>Issue #307: add French translations; also make translations discoverable by makemessages (thanks to Simon Maillard)</li>
+</ul>
+<p><strong>2.1.2 (20 april 2020)</strong></p>
+<ul>
+<li>Issue #298: directory support for drop area</li>
+<li>Issue #300: add migration so makemigrations will not create one (thanks to Lionqueen94)</li>
+</ul>
+<p><strong>2.1.1 (7 april 2020)</strong></p>
+<ul>
+<li>Issue #290: add javascript callbacks (thanks to Peter Dekkers)</li>
+<li>Issue #296: fix progress bar</li>
+<li>Issue #297: add retry delays</li>
+</ul>
+<p><strong>2.1.0 (28 march 2020)</strong></p>
+<ul>
+<li>Issue #266: allow relative <code>FILE_FORM_UPLOAD_DIR</code> setting (thanks to Bo Peng)</li>
+<li>Issue #267: add drop area (thanks to Bo Peng)</li>
+<li>Issue #275: show size of uploaded files (thanks to Bo Peng)</li>
+<li>Issue #278: allow the addition of placeholder files (thanks to Bo Peng)</li>
+<li>Issue #280: remove option <code>FILE_FORM_FILE_STORAGE</code></li>
+</ul>
+<p><strong>2.0.3 (15 february 2020)</strong></p>
+<ul>
+<li>Issue #237: using with form set (thanks to Juan Carlos Carvajal)</li>
+<li>Issue #259: include uncompressed js</li>
+<li>Issue #260: correctly use formset prefix (thanks to Gzuba)</li>
+<li>Issue #261: fix default for <code>FILE_FORM_UPLOAD_DIR</code> (thanks to Gzuba)</li>
+</ul>
+<p><strong>2.0.2 (14 january 2020)</strong></p>
+<ul>
+<li>Issue #247: support form wizard (thanks to Lionqueen94)</li>
+<li>Issue #251: delete after submit</li>
+</ul>
+<p><strong>2.0.1 (6 january 2020)</strong></p>
+<ul>
+<li>Issue #240: add empty dff files div (thanks to Lionqueen94)</li>
+<li>Issue #241: Csp compliance (thanks to Lionqueen94)</li>
+</ul>
+<p><strong>2.0 (30 december 2019)</strong></p>
+<ul>
+<li>Use tus instead of fine uploader</li>
+</ul>
+<p><strong>1.0 (5 december 2019)</strong></p>
+<ul>
+<li>Drop support for Python 2 and Django &lt; 2</li>
+<li>Issue #217: update fine uploader</li>
+<li>Issue #219: use <code>Selenium</code> for all tests</li>
+<li>Issue #222: use <code>pathlib2</code> (instead of pathlib)</li>
+<li>Issue #235: support Django 3.0</li>
+</ul>
+<p><strong>0.4.2 (3 March 2019)</strong></p>
+<ul>
+<li>Issue #207: support form prefixes (thanks to Iw108)</li>
+<li>Issue #201: fix multiple file upload without ajax (thanks to Lionqueen94)</li>
+</ul>
+<p><strong>0.4.1 (5 January 2019)</strong></p>
+<ul>
+<li>Issue #194: correctly call <code>is_authenticated</code> (thanks to Dureba)</li>
+</ul>
+<p><strong>0.4.0 (3 August 2018)</strong></p>
+<ul>
+<li>Support Django 2.1 and Python 3.7</li>
+<li>Issue #173: add i18n to upload widget (thanks to Arman Roomana)</li>
+</ul>
+<p><strong>0.3.0 (6 December 2017)</strong></p>
+<ul>
+<li>Support Django 2.0</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 1.1.2
+Build Date UTC : 2020-10-19 14:45:35.510406+00:00
+-->
