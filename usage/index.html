@@ -86,6 +86,10 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../internals/">Internals</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a>
                     </li>
                 </ul>
@@ -197,6 +201,9 @@ class ExampleForm(FileFormMixin, forms.Form):
         form.delete_temporary_files()
 
         return super(ExampleFormView, self).form_valid(form)
+</code></pre>
+<p>It's also possible to delete unused temporary file using a management command:</p>
+<pre><code>python manage.py delete_unused_files
 </code></pre>
               
             </div>
