@@ -204,6 +204,8 @@ class ExampleForm(FileFormMixin, forms.Form):
 </code></pre>
 <p>It's also possible to delete unused temporary file using a management command:</p>
 <pre><code>python manage.py delete_unused_files
+
+The command deletes temporary files and records that are created at least one day ago.
 </code></pre>
               
             </div>
