@@ -128,48 +128,52 @@
                 <h2 id="python-settings">Python settings</h2>
 <p>Settings in <code>settings.py</code>:</p>
 <ul>
-<li><strong>FILE_FORM_MUST_LOGIN</strong> (True / False):</li>
-<li>Must the user be logged in to upload a file.</li>
 <li>
-<p>The default is <code>False</code>.</p>
+<p><strong>FILE_FORM_MUST_LOGIN</strong> (True / False):</p>
+<ul>
+<li>Must the user be logged in to upload a file.</li>
+<li>The default is <code>False</code>.</li>
+</ul>
 </li>
 <li>
 <p><strong>FILE_FORM_UPLOAD_DIR</strong> (string):</p>
-</li>
+<ul>
 <li>The directory for the temporary uploads.</li>
 <li>The setting is relative to <code>MEDIA_ROOT</code>.</li>
-<li>
-<p>The default is <code>temp_uploads</code>.</p>
+<li>The default is <code>temp_uploads</code>.</li>
+</ul>
 </li>
 <li>
 <p><strong>FILE_FORM_MAX_FILE_SIZE</strong> (int)</p>
-</li>
+<ul>
 <li>Maximum upload size in bytes</li>
-<li>
-<p>Default is 4GB</p>
+<li>Default is 4GB</li>
+</ul>
 </li>
 <li>
 <p><strong>FILE_FORM_FILE_STORAGE</strong> (string):</p>
-</li>
+<ul>
 <li>Dotted path to the class that is used to store temporary uploads.</li>
 <li>The default is <code>django.core.files.storage.FileSystemStorage</code>.</li>
-<li>
-<p>Note that files will be uploaded to the local file system first regardless. This storage backend will be used only for fully uploaded files that are then passed back to the form when it's submitted.</p>
+<li>Note that files will be uploaded to the local file system first regardless. This storage backend will be used only for fully uploaded files that are then passed back to the form when it's submitted.</li>
+</ul>
 </li>
 <li>
 <p><strong>FILE_FORM_CACHE</strong> (string):</p>
-</li>
+<ul>
 <li>Name of a cache backend defined in <code>settings.CACHES</code>.</li>
 <li>The default is Django's <code>default</code> cache.</li>
-<li>
-<p>The cache is used to store data about files while they are being uploaded. If the default might be cleared while a file upload is in progress then using a different backend like django's database cache might be more appropriate. Note that <code>cache.clear()</code> will clear the whole cache at a specified <code>LOCATION</code> regardless what the <code>KEY_PREFIX</code> is.</p>
+<li>The cache is used to store data about files while they are being uploaded. If the default might be cleared while a file upload is in progress then using a different backend like django's database cache might be more appropriate. Note that <code>cache.clear()</code> will clear the whole cache at a specified <code>LOCATION</code> regardless what the <code>KEY_PREFIX</code> is.</li>
+</ul>
 </li>
 <li>
 <p><strong>FILE_UPLOAD_PERMISSIONS</strong> (octal) [django-setting]:</p>
-</li>
+<ul>
 <li>This is a setting from the DJANGO core.</li>
 <li>Sets the the permissions for the uploaded files, for example: 0o644.</li>
-<li>See more details at: https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-FILE_UPLOAD_PERMISSIONS.</li>
+<li><a href="https://docs.djangoproject.com/en/3.1/ref/settings/#std:setting-FILE_UPLOAD_PERMISSIONS">See more details</a></li>
+</ul>
+</li>
 </ul>
               
             </div>

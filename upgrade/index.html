@@ -127,15 +127,19 @@
               
                 <h2 id="upgrade-from-version-10-to-20">Upgrade from version 1.0 (to 2.0)</h2>
 <ul>
-<li>Add reference to file_form/file_form.css:</li>
+<li>Add reference to file_form/file_form.css:<ul>
 <li><code>&lt;link rel="stylesheet" href="{% static "file_form/file_form.css" %}"&gt;</code></li>
+</ul>
+</li>
 <li>Remove <code>django_file_form.ajaxuploader</code> from <code>INSTALLED_APPS</code> in your settings</li>
 <li>Remove reference to <code>ajaxuploader/js/fileuploader.js</code> in your template</li>
 <li>Remove reference to <code>ajaxuploader/css/fileuploader.css</code> in your template</li>
 <li>You don't have to include jquery; the fileuploader doesn't use it</li>
 <li>The setting <code>FILE_FORM_UPLOAD_BACKEND</code> is removed</li>
-<li>If you use custom css, you might have to change it.</li>
+<li>If you use custom css, you might have to change it.<ul>
 <li>The html uses the prefix <code>dff</code> now.</li>
+</ul>
+</li>
 </ul>
               
             </div>

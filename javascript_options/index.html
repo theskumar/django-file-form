@@ -131,7 +131,7 @@
 </code></pre>
 <ul>
 <li><code>formDomElement</code> (required); e.g. <code>document.getElementById("example-form")</code></li>
-<li>options (optional)</li>
+<li>options (optional)<ul>
 <li><code>callbacks</code>: callbacks for things like upload progress and errors.</li>
 <li><code>chunkSize</code>: the maximum size of an upload. Default is 2.5 MB.<ul>
 <li>Note that Django limits the size of a request. See https://docs.djangoproject.com/en/3.1/ref/settings/#data-upload-max-memory-size.</li>
@@ -147,6 +147,8 @@
 <li><code>skipRequired</code> : don't set the <code>required</code> field of the file input; default is <code>false</code></li>
 <li><code>supportDropArea</code> : add a drop area; default is <code>true</code></li>
 </ul>
+</li>
+</ul>
 <p>The callbacks are:</p>
 <ul>
 <li><code>onDelete</code><ul>
@@ -156,8 +158,10 @@
 </li>
 <li><code>onError</code>:<ul>
 <li>called when an upload error occurs</li>
-<li>Signature of callback is <code>function(error, upload)</code></li>
+<li>Signature of callback is <code>function(error, upload)</code><ul>
 <li><code>error</code>: javascript Error</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><code>onProgress</code>:<ul>
