@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Changelog - django-file-form</title>
+  <title>Admin - django-file-form</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Changelog";
-    var mkdocs_page_input_path = "changelog.md";
+    var mkdocs_page_name = "Admin";
+    var mkdocs_page_input_path = "admin.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -83,8 +83,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../model_forms/">Model forms</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Admin</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -103,10 +105,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../internals/">Internals</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Changelog</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../changelog/">Changelog</a>
                     </li>
                 </ul>
       </div>
@@ -130,7 +130,7 @@
     
       
     
-    <li>Changelog</li>
+    <li>Admin</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -141,127 +141,16 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="changelog">Changelog</h2>
-<p><strong>3.1.5 (29 march 2021)</strong></p>
-<ul>
-<li>Issue #211: auto initialize javascript</li>
-<li>Issue #339: Django admin support</li>
-<li>Issue #446: add AWS_S3_REGION_NAME and AWS_S3_SIGNATURE_VERSION settings (thanks to Niklas Wahl)</li>
-</ul>
-<p><strong>3.1.4 (8 march 2021)</strong></p>
-<ul>
-<li>Issue #436: allow customization of the widget (thanks to Bo Peng)</li>
-<li>Issue #439: support ModelForm</li>
-</ul>
-<p><strong>3.1.3 (19 january 2021)</strong></p>
-<ul>
-<li>Issue #422: add model rename to migrations (thanks to Shrikrishna Singh)</li>
-</ul>
-<p><strong>3.1.2 (27 december 2020)</strong></p>
-<ul>
-<li>Issue #418: correctly remove upload</li>
-</ul>
-<p><strong>3.1.1 (26 november 2020)</strong></p>
-<ul>
-<li>Issue #388: add cross-site request forgery protection to tus uploads using the standard Django csrf token</li>
-<li>Issue #393: fix delete-unused-files command (thanks to Seb Haase)</li>
-<li>issue #401: optimization: use move instead of copy when possible</li>
-</ul>
-<p><strong>3.1.0 (15 september 2020)</strong></p>
-<ul>
-<li>Issue #324: get placeholder file for UploadWidget (thanks to Shrikrishna Singh)</li>
-<li>Issue #330: allow upload directly to S3 compatible storages (thanks to Bo Peng)</li>
-<li>Issue #331: fix error in deleting files (thanks to Bo Peng)</li>
-<li>Issue #333: replace existing uploaded file with the same name (thanks to Bo Peng)</li>
-<li>Issue #341: add javascript events (experimental)</li>
-<li>Issue #346: allow definition of s3_upload_dir in form class (thanks to Bo Peng)</li>
-</ul>
-<p><strong>3.0.1 (4 september 2020)</strong></p>
-<ul>
-<li>Issue #347: add chunkSize parameter to avoid request error in Django</li>
-</ul>
-<p><strong>3.0.0 (6 august 2020)</strong></p>
-<ul>
-<li>Issue #320: fix UploadMultipleWidget to return correct placeholder files (thanks to Shrikrishna Singh)</li>
-<li>Issue #325: support Django 3.1</li>
-</ul>
-<p><strong>2.2.0 (22 july 2020)</strong></p>
-<ul>
-<li>Issue #315: file is not removed after form error</li>
-<li>Issue #313: allow using custom storage and custom cache (thanks to Balazs Endresz)</li>
-</ul>
-<p><strong>2.1.3 (20 june 2020)</strong></p>
-<ul>
-<li>Issue #304: rewrite frontend in typescript</li>
-<li>Issue #305: don't change migration when setting changes (thanks to Lionqueen94)</li>
-<li>Issue #307: add French translations; also make translations discoverable by makemessages (thanks to Simon Maillard)</li>
-</ul>
-<p><strong>2.1.2 (20 april 2020)</strong></p>
-<ul>
-<li>Issue #298: directory support for drop area</li>
-<li>Issue #300: add migration so makemigrations will not create one (thanks to Lionqueen94)</li>
-</ul>
-<p><strong>2.1.1 (7 april 2020)</strong></p>
-<ul>
-<li>Issue #290: add javascript callbacks (thanks to Peter Dekkers)</li>
-<li>Issue #296: fix progress bar</li>
-<li>Issue #297: add retry delays</li>
-</ul>
-<p><strong>2.1.0 (28 march 2020)</strong></p>
-<ul>
-<li>Issue #266: allow relative <code>FILE_FORM_UPLOAD_DIR</code> setting (thanks to Bo Peng)</li>
-<li>Issue #267: add drop area (thanks to Bo Peng)</li>
-<li>Issue #275: show size of uploaded files (thanks to Bo Peng)</li>
-<li>Issue #278: allow the addition of placeholder files (thanks to Bo Peng)</li>
-<li>Issue #280: remove option <code>FILE_FORM_FILE_STORAGE</code></li>
-</ul>
-<p><strong>2.0.3 (15 february 2020)</strong></p>
-<ul>
-<li>Issue #237: using with form set (thanks to Juan Carlos Carvajal)</li>
-<li>Issue #259: include uncompressed js</li>
-<li>Issue #260: correctly use formset prefix (thanks to Gzuba)</li>
-<li>Issue #261: fix default for <code>FILE_FORM_UPLOAD_DIR</code> (thanks to Gzuba)</li>
-</ul>
-<p><strong>2.0.2 (14 january 2020)</strong></p>
-<ul>
-<li>Issue #247: support form wizard (thanks to Lionqueen94)</li>
-<li>Issue #251: delete after submit</li>
-</ul>
-<p><strong>2.0.1 (6 january 2020)</strong></p>
-<ul>
-<li>Issue #240: add empty dff files div (thanks to Lionqueen94)</li>
-<li>Issue #241: Csp compliance (thanks to Lionqueen94)</li>
-</ul>
-<p><strong>2.0 (30 december 2019)</strong></p>
-<ul>
-<li>Use tus instead of fine uploader</li>
-</ul>
-<p><strong>1.0 (5 december 2019)</strong></p>
-<ul>
-<li>Drop support for Python 2 and Django &lt; 2</li>
-<li>Issue #217: update fine uploader</li>
-<li>Issue #219: use <code>Selenium</code> for all tests</li>
-<li>Issue #222: use <code>pathlib2</code> (instead of pathlib)</li>
-<li>Issue #235: support Django 3.0</li>
-</ul>
-<p><strong>0.4.2 (3 March 2019)</strong></p>
-<ul>
-<li>Issue #207: support form prefixes (thanks to Iw108)</li>
-<li>Issue #201: fix multiple file upload without ajax (thanks to Lionqueen94)</li>
-</ul>
-<p><strong>0.4.1 (5 January 2019)</strong></p>
-<ul>
-<li>Issue #194: correctly call <code>is_authenticated</code> (thanks to Dureba)</li>
-</ul>
-<p><strong>0.4.0 (3 August 2018)</strong></p>
-<ul>
-<li>Support Django 2.1 and Python 3.7</li>
-<li>Issue #173: add i18n to upload widget (thanks to Arman Roomana)</li>
-</ul>
-<p><strong>0.3.0 (6 December 2017)</strong></p>
-<ul>
-<li>Support Django 2.0</li>
-</ul>
+                <h2 id="django-admin">Django admin</h2>
+<p>Use <code>FileFormAdmin</code> instead of <code>ModelAdmin</code> to support django-file-form uploads.</p>
+<pre><code class="language-python">from django_file_form.model_admin import FileFormAdmin
+
+class ExampleAdmin(FileFormAdmin):
+    pass
+
+admin.site.register(Example, ExampleAdmin)
+</code></pre>
+<p>Also see the testproject in the repository.</p>
               
             </div>
           </div>
@@ -269,8 +158,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../translations/" class="btn btn-neutral float-right" title="Translations">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../internals/" class="btn btn-neutral" title="Internals"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../model_forms/" class="btn btn-neutral" title="Model forms"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -296,8 +187,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../internals/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../model_forms/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../translations/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -74,11 +74,19 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auto_initialize/">Auto initialize javascript</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../form_sets/">Form sets</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../model_forms/">Model forms</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
                     </li>
                 </ul>
                 <ul>
@@ -181,11 +189,11 @@ class ExampleForm(FileFormMixin, forms.Form):
 &lt;/script&gt;
 </code></pre>
 <p>If your form has a prefix, then call <code>initUploadFields</code> as follows:</p>
-<pre><code class="language-js">  // for example, with prefix 'abc'
-  initUploadFields(
-    document.getElementById(&quot;example-form&quot;),
-    { prefix: 'abc' }
-  );
+<pre><code class="language-js">// for example, with prefix 'abc'
+initUploadFields(
+  document.getElementById(&quot;example-form&quot;),
+  { prefix: 'abc' }
+);
 </code></pre>
 <p>See the <a href="https://docs.djangoproject.com/en/2.1/ref/forms/api/#prefixes-for-forms">Django documentation</a> for more information about form prefixes.</p>
 <p><strong>8 Handle uploaded files</strong></p>

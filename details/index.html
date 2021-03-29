@@ -86,11 +86,19 @@
                     </li>
                 </ul>
                 <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../auto_initialize/">Auto initialize javascript</a>
+                    </li>
+                </ul>
+                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../form_sets/">Form sets</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../model_forms/">Model forms</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../admin/">Admin</a>
                     </li>
                 </ul>
                 <ul>
@@ -195,12 +203,13 @@ You then need to define the following variables in <code>settings</code></p>
 <pre><code>AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
 AWS_STORAGE_BUCKET_NAME
-AWS_S3_REGION_NAME
-AWS_S3_ENDPOINT_URL
+AWS_S3_REGION_NAME (optional)
+AWS_S3_SIGNATURE_VERSION (optional)
+AWS_S3_ENDPOINT_URL (optional)
 </code></pre>
 <p>or through environment variables with the same names as described
 in <a href="https://django-storages.readthedocs.io/en/latest/backends/amazon-S3.html"><code>django-storage</code> documentation</a>.</p>
-<p>The following CORS settings are also needed in <code>settings</code></p>
+<p>If you are using <code>django-csp</code> for setting the Content Security Policy, then the following CORS settings are also needed in <code>settings</code></p>
 <pre><code>CSP_DEFAULT_SRC = (&quot;'none'&quot;,)
 CSP_STYLE_SRC = (&quot;'self'&quot;)
 CSP_SCRIPT_SRC = (&quot;'self'&quot;,)
